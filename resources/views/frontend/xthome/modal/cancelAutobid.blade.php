@@ -1,4 +1,4 @@
-<div class="modal fade" tabindex="-1" id="cancel_autobid" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade" tabindex="-1" id="cancel_autobid" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

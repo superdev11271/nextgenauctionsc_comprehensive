@@ -54,8 +54,7 @@
                                     <div class="sidebar__search">
                                         <div class="sidebar__search-input-2">
                                             <input type="text" name="search" value="{{ $search }}"
-                                                placeholder="{{ translate('Search...') }}" autocomplete="off"
-                                                placeholder="Search your keyword...">
+                                                placeholder="{{ translate('Search...') }}" autocomplete="off">
                                             <button type="submit">
                                                 <i class="fa-solid fa-magnifying-glass"></i>
                                             </button>

@@ -291,12 +291,12 @@
         @else
             @if($detailedProduct->user->id != auth()->user()?->id)
             <a href="javascript:void(0)"   class="theme-btn-one w-100 d-flex justify-content-center mb-3 add-to-cart {{ $qty == 0 ? 'd-none' : ''  }}"
-                @if (Auth::check()) onclick="addToCart()" @else onclick="showLoginModal()" @endif>
+                onclick="{{ Auth::check() ? 'addToCart()' : 'showLoginModal()' }}">
                 <i class="lnr lnr-cart"></i><span>{{ translate('Add to cart') }}</span>
             </a>
 
             <a href="javascript:void(0)"  class="theme-btn-two w-100  mb-3 buy-now {{ $qty == 0 ? 'd-none' : ''  }}"
-                @if (Auth::check()) onclick="addToCart()" @else onclick="showLoginModal()" @endif><i
+                onclick="{{ Auth::check() ? 'addToCart()' : 'showLoginModal()' }}"><i
                     class="lnr lnr-heart"></i>
                 <span>{{ translate('Buy Now') }}</span>
             </a>
@@ -312,12 +312,12 @@
     @elseif ($detailedProduct->digital == 1)
         @if($detailedProduct->user->id != auth()->user()?->id)
         <a href="javascript:void(0)" class="theme-btn-one w-100 d-flex justify-content-center  mb-3 add-to-cart {{ $qty == 0 ? 'd-none' : ''  }}"
-            @if (Auth::check()) onclick="addToCart()" @else onclick="showLoginModal()" @endif>
+            onclick="{{ Auth::check() ? 'addToCart()' : 'showLoginModal()' }}">
             <i class="lnr lnr-cart"></i><span> {{ translate('Add to cart') }}</span>
         </a>
 
         <a href="{{ route('cart') }}" class="theme-btn-two w-100  mb-3 buy-now {{ $qty == 0 ? 'd-none' : ''  }}"
-            @if (Auth::check()) onclick="addToCart()" @else onclick="showLoginModal()" @endif><i
+            onclick="{{ Auth::check() ? 'addToCart()' : 'showLoginModal()' }}"><i
                 class="lnr lnr-heart"></i>
             <span>{{ translate('Buy Now') }}</span>
         </a>

@@ -23,7 +23,7 @@
                 <div class="col-12">
                     <div class="form-floating mb-4">
                         <input type="text" id="edit_postal_code" name="postal_code" class="form-control"
-                            placeholder="{{ translate('Your Postal Code') }}" name="postal_code"
+                            placeholder="{{ translate('Your Postal Code') }}"
                             onblur="this.value = this.value.trim()===''?'':this.value;"
                             value="{{ $address_data->postal_code }}" required>
                         <label for="edit_postal_code">{{ translate('Postal code') }} <span class="text-danger">

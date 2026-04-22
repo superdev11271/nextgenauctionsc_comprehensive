@@ -254,7 +254,7 @@ $isOngoing = $product->auction_start_date <= $currentTime && $product->auction_e
                                             <input type="text" name="amount"
                                             class="form-control form-control-sm"
                                             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/(\.\d{2}).+/g, '$1');"
-                                            placeholder="$ 000" name="amount"
+                                            placeholder="$ 000"
                                             id="amountInput{{ $product->id }}"
                                             value="{{ $min_bid_amount }}" />
                                         {{-- <input type="number" class="form-control form-control-sm"
