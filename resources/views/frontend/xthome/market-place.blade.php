@@ -17,7 +17,7 @@
                     </div>
                     <div class="shop__all__top__filter__btn">
                         <a class="btn btn-default" data-bs-toggle="offcanvas" href="#shopFilterbar" role="button">
-                                <img src="{{static_asset('xt-assets')}}/images/icons/filter-icon.svg" alt="">
+                                <img src="{{static_asset('xt-assets')}}/images/icons/filter-icon.svg" alt="{{ translate('Filter results') }}">
                                 Filter
                         </a>
                     </div>

@@ -29,7 +29,7 @@
                     <div class="tp-contact-thumb mb-60">
                         {{-- @dd(get_setting('contact_image')); --}}
                         {{-- <img src="{{static_asset('xt-assets/images/contact-1.jpg')}}" alt="" /> --}}
-                        <img src="{{uploaded_asset(get_setting('contact_image'))}}" alt="" />
+                        <img src="{{uploaded_asset(get_setting('contact_image'))}}" alt="{{ translate('Contact us image') }}" />
 
                     </div>
                     <div class="tp-contact-info mb-40">

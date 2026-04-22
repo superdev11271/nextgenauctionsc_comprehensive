@@ -54,7 +54,7 @@ $isOngoing = $data->auction_start_date <= $currentTime && $data->auction_end_dat
                         @endif
                         <a href="{{ route('auction_collection_products.all', encrypt($auction_detail->auction_number)) }}">
                             @if ($data?->banner_image)
-                            <img src="{{ uploaded_asset($data?->banner_image) }}" onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';" class="position-relative h-100 w-100 object-fit-cover" alt="">
+                            <img src="{{ uploaded_asset($data?->banner_image) }}" onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';" class="position-relative h-100 w-100 object-fit-cover" alt="{{ $data->getTranslation('name') }}">
                             @else
                             <img src="{{ get_image($data->thumbnail, 'thumbnail') }}"
                                 alt="{{ $data->getTranslation('name') }}" title="{{ $data->getTranslation('name') }}"

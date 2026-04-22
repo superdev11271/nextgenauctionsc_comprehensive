@@ -3332,3 +3332,75 @@ function syncProductColumn($criteriaColumn,$criteriaValue, $syncColumn, $syncVal
         return Product::where($criteriaColumn,$criteriaValue)->update([$syncColumn=>$syncValue]);
     }
 }
+
+if (!function_exists('seo_limit_text')) {
+    function seo_limit_text($text, $max = 60)
+    {
+        $normalizedText = trim(preg_replace('/\s+/', ' ', html_entity_decode(strip_tags((string) $text))));
+
+        if ($normalizedText === '') {
+            return '';
+        }
+
+        if (mb_strlen($normalizedText) <= $max) {
+            return $normalizedText;
+        }
+
+        return rtrim(mb_substr($normalizedText, 0, max(0, $max - 3)), " \t\n\r\0\x0B.,;:-") . '...';
+    }
+}
+
+if (!function_exists('seo_title')) {
+    function seo_title($rawTitle = null, $keyword = null, $max = 60)
+    {
+        $baseTitle = $rawTitle ?: (get_setting('meta_title') ?: get_setting('website_name'));
+        $finalTitle = trim((string) $baseTitle);
+
+        if ($keyword && stripos($finalTitle, $keyword) === false) {
+            $finalTitle .= ' | ' . $keyword;
+        }
+
+        return seo_limit_text($finalTitle, $max);
+    }
+}
+
+if (!function_exists('seo_meta_description')) {
+    function seo_meta_description($rawDescription = null, $cta = 'Explore live auctions now.', $max = 160)
+    {
+        $baseDescription = $rawDescription ?: get_setting('meta_description');
+        $finalDescription = trim((string) $baseDescription);
+
+        if ($cta && stripos($finalDescription, $cta) === false) {
+            $finalDescription = rtrim($finalDescription, " \t\n\r\0\x0B.") . '. ' . $cta;
+        }
+
+        return seo_limit_text($finalDescription, $max);
+    }
+}
+
+if (!function_exists('seo_canonical_url')) {
+    function seo_canonical_url()
+    {
+        return url()->current();
+    }
+}
+
+if (!function_exists('seo_website_schema')) {
+    function seo_website_schema($title, $description, $url)
+    {
+        $websiteSchema = [
+            '@context' => 'https://schema.org',
+            '@type' => 'WebSite',
+            'name' => (string) $title,
+            'description' => (string) $description,
+            'url' => (string) $url,
+            'potentialAction' => [
+                '@type' => 'SearchAction',
+                'target' => route('search') . '?keyword={search_term_string}',
+                'query-input' => 'required name=search_term_string',
+            ],
+        ];
+
+        return json_encode($websiteSchema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    }
+}

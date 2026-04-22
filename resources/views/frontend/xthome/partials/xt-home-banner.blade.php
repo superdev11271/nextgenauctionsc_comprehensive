@@ -25,7 +25,7 @@
                         </div>
                         @endif
                     </div>
-                    <figure class="image-box image-1"><img src="{{ $slider ? my_asset($slider->file_name) : static_asset('assets/img/placeholder.jpg') }}" alt="{{ env('APP_NAME') }} xthome" onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';" alt="">
+                    <figure class="image-box image-1"><img src="{{ $slider ? my_asset($slider->file_name) : static_asset('assets/img/placeholder.jpg') }}" alt="{{ translate('Homepage banner image') }}" onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';">
                     </figure>
                 </div>
             </div>

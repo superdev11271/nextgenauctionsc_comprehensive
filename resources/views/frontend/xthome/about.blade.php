@@ -50,7 +50,7 @@
          @foreach($aboutdata as $index => $section)
             @if($index % 2  == 0)
             <div class="d-flex flex-wrap justify-content-between pb-86">
-               <div class="about-left-content text-center"><img src="{{uploaded_asset($section['about_image'] ?? '')}}" alt=""></div>
+               <div class="about-left-content text-center"><img src="{{uploaded_asset($section['about_image'] ?? '')}}" alt="{{ translate('About section image') }}"></div>
                <div class="right-content pl-110">
                      <h5 class="tp-title-sm">{!! $section['title'] ?? '' !!}</h5>
                      <p class="second-head">{!! $section['heading']?? '' !!}</p>
@@ -64,7 +64,7 @@
                      <p class="second-head">{!! $section['heading']?? '' !!}</p>
                      <p class="pb-15">{!! $section['aboutus_content'] !!}</p>
                </div>    
-               <div class="about-left-content"><img src="{{uploaded_asset($section['about_image'] ?? '')}}" alt=""></div>     
+               <div class="about-left-content"><img src="{{uploaded_asset($section['about_image'] ?? '')}}" alt="{{ translate('About section image') }}"></div>     
             </div>
             @endif
           @endforeach
