@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class CommissionHistory extends Model
+{
+    public function order() {
+        return $this->hasOne(Order::class, 'id', 'order_id');
+    }
+
+    public function seller() {
+        return $this->hasOne(Seller::class, 'id', 'seller_id');
+    }
+}

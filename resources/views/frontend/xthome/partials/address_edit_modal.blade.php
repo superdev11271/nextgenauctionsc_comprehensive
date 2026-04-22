@@ -1,0 +1,116 @@
+<form class="form-default" role="form" action="{{ route('addresses.update', $address_data->id) }}" method="POST">
+    @csrf
+    <div class="modal-body">
+        <div class="flex-grow-1 pl-3 text-left">
+            <div class="row">
+                <div class="fs-14 col-12 col-lg-4 fw-700">{{ translate('Address') }}</div>
+                <div class="col-12">
+                    <div class="form-floating mb-4">
+                        <textarea type="text" class="form-control textarea-form" id="" value="" name="address"
+                            onblur="this.value = this.value.trim()===''?'':this.value;" placeholder="{{ translate('Your Address') }}"
+                            rows="5" required>{{ $address_data->address }}</textarea>
+                        <label for="text">{{ translate('Address') }} <span class="text-danger">
+                                *</span></label>
+                        @if ($errors->has('address'))
+                            <p class="text-danger" role="alert">
+                                <small>{{ $errors->first('address') }}</small>
+                            </p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-floating mb-4">
+                        <input type="text" name="postal_code" class="form-control"
+                            placeholder="{{ translate('Your Postal Code') }}" name="postal_code"
+                            onblur="this.value = this.value.trim()===''?'':this.value;"
+                            value="{{ $address_data->postal_code }}" required>
+                        <label for="email">{{ translate('Postal code') }} <span class="text-danger">
+                                *</span></label>
+                        @if ($errors->has('postal_code'))
+                            <p class="text-danger" role="alert">
+                                <small>{{ $errors->first('postal_code') }}</small>
+                            </p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-floating mb-2">
+                        <select class="form-control form-select aiz-selectpicker" data-live-search="true"
+                            data-placeholder="{{ translate('Select your country') }}" name="country_id" required>
+                            <option value="">{{ translate('Select your country') }}</option>
+                            @foreach (get_active_countries() as $key => $country)
+                                <option value="{{ $country->id }}" @if ($address_data->country_id == $country->id) selected @endif>
+                                    {{ $country->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <label for="text">{{ translate('Country') }} <span class="text-danger">
+                                *</span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-floating mb-2">
+                        <select class="form-control form-select aiz-selectpicker" data-live-search="true"
+                            name="state_id" required>
+                            @foreach ($states as $key => $state)
+                                <option value="{{ $state->id }}" @if ($address_data->state_id == $state->id) selected @endif>
+                                    {{ $state->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <label for="text">{{ translate('State') }} <span class="text-danger">*</span></label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-floating mb-2">
+                        <select class="form-control form-select aiz-selectpicker" data-live-search="true" name="city_id"
+                            required>
+
+                            @foreach ($cities as $key => $city)
+                                <option value="{{ $city->id }}" @if ($address_data->city_id == $city->id) selected @endif>
+                                    {{ $city->name }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                        <label for="email">{{ translate('City') }} <span class="text-danger">
+                                *</span></label>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="phone" class="form-control" id=""
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '')" value="{{ $address_data->phone }}"
+                            value="" placeholder="Phone No." required>
+                        <label for="email">Phone No. <span class="text-danger"> *</span></label>
+                        @if ($errors->has('phone'))
+                            <p class="text-danger" role="alert">
+                                <small>{{ $errors->first('phone') }}</small>
+                            </p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group"><button type="submit" class="theme-btn-two w-100">SUBMIT</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

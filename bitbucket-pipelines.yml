@@ -1,0 +1,19 @@
+# Template PHP Build
+
+# This template allows you to validate your PHP application.
+# The workflow allows running tests and code linting on the default branch.
+
+image: php:8.2
+
+
+pipelines:
+  branches:
+    staging:
+        - step:
+            name: Deploying to XIPETECH DEV SERVER
+            caches:
+              - composer
+            script:
+              - apt-get update && apt-get install -y unzip
+              - apt-get install -y openssh-client
+              - ssh $DEV_USER@$DEV_HOST 'bash -s' < deploy.sh

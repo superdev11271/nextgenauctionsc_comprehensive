@@ -1,0 +1,1 @@
+@include('auth.'.get_setting('authentication_layout_select').'.admin_login')
