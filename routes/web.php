@@ -225,7 +225,15 @@ Route::post('/currency', [CurrencyController::class, 'changeCurrency'])->name('c
 Route::get('/size-charts-show/{id}', [SizeChartController::class, 'show'])->name('size-charts-show');
 
 Route::get('/sitemap.xml', function () {
-    return base_path('sitemap.xml');
+    $sitemapPath = base_path('sitemap.xml');
+
+    if (!file_exists($sitemapPath)) {
+        abort(404);
+    }
+
+    return response()->file($sitemapPath, [
+        'Content-Type' => 'application/xml',
+    ]);
 });
 
 // Classified Product

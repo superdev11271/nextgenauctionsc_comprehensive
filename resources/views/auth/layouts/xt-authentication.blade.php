@@ -175,7 +175,7 @@ $rtl = get_session_language()->rtl;
         fbq('track', 'PageView');
     </script>
     <noscript>
-        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{ env('FACEBOOK_PIXEL_ID') }}&ev=PageView&noscript=1" />
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={{ env('FACEBOOK_PIXEL_ID') }}&ev=PageView&noscript=1" alt="Facebook Pixel Tracking" />
     </noscript>
     <!-- End Facebook Pixel Code -->
     @endif
