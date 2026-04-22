@@ -36,7 +36,7 @@
 
                                     <input type="password" name="password"
                                             class="form-control" id="password" placeholder="Password" oninput="this.value = this.value.replace(/\s/g, '')" autocomplete="off" ><label
-                                            for="name">{{__('Password')}} <span class="text-danger">*</span> </label>
+                                            for="password">{{__('Password')}} <span class="text-danger">*</span> </label>
 
                                     @if ($errors->has('password'))
                                         <p class="text-danger" role="alert">
