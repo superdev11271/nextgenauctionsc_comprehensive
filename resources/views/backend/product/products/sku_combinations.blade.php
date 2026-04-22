@@ -49,7 +49,7 @@
 		@if(strlen($str) > 0)
 			<tr class="variant">
 				<td>
-					<label for="" class="control-label">{{ $str }}</label>
+					<span class="control-label">{{ $str }}</span>
 				</td>
 				<td>
 					<input type="number" lang="en" name="price_{{ $str }}" value="{{ $unit_price }}" min="0" step="0.01" class="form-control" required>

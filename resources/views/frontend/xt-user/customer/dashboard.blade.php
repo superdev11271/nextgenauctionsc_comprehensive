@@ -216,7 +216,7 @@
                     <div class="col-md-12">
                         <div class="d-flex gap-4">
                             <div class="doc_thumb curser-pointer" data-toggle="modal" data-target="#imageViewModal">
-                                <div><img class="img-thumbnail" src="{{ static_asset(Auth::user()->idPhoto?->file_name) }}" onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';"></div>
+                                <div><img class="img-thumbnail" src="{{ static_asset(Auth::user()->idPhoto?->file_name) }}" alt="{{ __('Driving licence photo') }}" onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';"></div>
                                 <div>View Photo</div>
                                 <!-- <span>{{ __('Driving Licence Photo') }}</span> -->
                             </div>

@@ -56,10 +56,12 @@ use App\Http\Controllers\SizeChartController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\PushNotificationController;
 use App\Http\Controllers\XeroController;
+use App\Models\Category;
 use App\Models\EmailTemplate;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Wishlist;
+use Illuminate\Support\Facades\Cache;
 use Minishlink\WebPush\VAPID;
 
 use Spatie\Permission\Models\Role;
@@ -225,14 +227,55 @@ Route::post('/currency', [CurrencyController::class, 'changeCurrency'])->name('c
 Route::get('/size-charts-show/{id}', [SizeChartController::class, 'show'])->name('size-charts-show');
 
 Route::get('/sitemap.xml', function () {
-    $sitemapPath = base_path('sitemap.xml');
+    $xml = Cache::remember('seo.sitemap.xml', now()->addMinutes(30), function () {
+        $staticUrls = collect([
+            ['loc' => url('/'), 'lastmod' => now()->toDateString()],
+            ['loc' => route('home'), 'lastmod' => now()->toDateString()],
+            ['loc' => url('/auction-products/collection'), 'lastmod' => now()->toDateString()],
+        ]);
 
-    if (!file_exists($sitemapPath)) {
-        abort(404);
-    }
+        $categoryUrls = Category::query()
+            ->select(['slug', 'updated_at'])
+            ->whereNotNull('slug')
+            ->where('slug', '!=', '')
+            ->orderBy('id')
+            ->get()
+            ->map(function ($category) {
+                return [
+                    'loc' => route('auction.products.category', ['category' => $category->slug]),
+                    'lastmod' => optional($category->updated_at)->toDateString() ?: now()->toDateString(),
+                ];
+            });
 
-    return response()->file($sitemapPath, [
-        'Content-Type' => 'application/xml',
+        $urls = $staticUrls->merge($categoryUrls)->unique('loc')->values();
+
+        $urlset = $urls->map(function ($item) {
+            $loc = htmlspecialchars($item['loc'], ENT_QUOTES, 'UTF-8');
+            $lastmod = htmlspecialchars($item['lastmod'], ENT_QUOTES, 'UTF-8');
+
+            return "<url><loc>{$loc}</loc><lastmod>{$lastmod}</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>";
+        })->implode('');
+
+        return '<?xml version="1.0" encoding="UTF-8"?>'
+            . '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+            . $urlset
+            . '</urlset>';
+    });
+
+    return response($xml, 200, [
+        'Content-Type' => 'application/xml; charset=UTF-8',
+        'Cache-Control' => 'public, max-age=1800',
+    ]);
+});
+
+Route::get('/robots.txt', function () {
+    $content = "User-agent: *\n"
+        . "Allow: /\n\n"
+        . 'Sitemap: ' . url('/sitemap.xml') . "\n";
+
+    return response($content, 200, [
+        'Content-Type' => 'text/plain; charset=UTF-8',
+        'Cache-Control' => 'public, max-age=1800',
     ]);
 });
 

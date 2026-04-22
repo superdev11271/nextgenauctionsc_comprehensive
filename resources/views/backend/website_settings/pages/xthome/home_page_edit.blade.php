@@ -1463,8 +1463,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label" for="">{{ translate('Heading') }} <span
-                            class="text-danger"></span></label>
+                    <span class="control-label d-block">{{ translate('Heading') }} <span
+                            class="text-danger"></span></span>
                     <div class="form-group mb-md-0">
                         <input type="hidden" name="types[][{{ $lang }}]" value="contact_section_heading">
                         <textarea class="form-control" placeholder="Heading" name="contact_section_heading">{{ get_setting('contact_section_heading', null, $lang) }}</textarea>
@@ -1473,8 +1473,8 @@
 
 
                 <div class="form-group">
-                    <label class="control-label" for="">{{ translate('Description') }} <span
-                            class="text-danger"></span></label>
+                    <span class="control-label d-block">{{ translate('Description') }} <span
+                            class="text-danger"></span></span>
                     <div class="form-group mb-md-0">
                         <input type="hidden" name="types[][{{ $lang }}]" value="contact_section_desc">
                         <textarea class="form-control" placeholder="Description" name="contact_section_desc">{{ get_setting('contact_section_desc', null, $lang) }}</textarea>
