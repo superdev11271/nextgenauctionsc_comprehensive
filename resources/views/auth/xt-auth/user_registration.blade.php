@@ -68,9 +68,9 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-4">
-                                                    <input type="email" class="form-control rounded-0 {{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                                    <input id="user_registration_email" type="email" class="form-control rounded-0 {{ $errors->has('email') ? ' is-invalid' : '' }}"
                                                         placeholder="Email" name="email" value="{{ old('email') }}" required>
-                                                    <label for="email">Email <span class="text-danger">*</span></label>
+                                                    <label for="user_registration_email">Email <span class="text-danger">*</span></label>
                                                     @if ($errors->has('email'))
                                                     <span class="invalid-feedback" role="alert">
                                                         <small>{{ $errors->first('email') }}</small>

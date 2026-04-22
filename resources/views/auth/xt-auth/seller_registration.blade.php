@@ -33,7 +33,7 @@
                                 <form id="reg-form" class="form-default" role="form" action="{{ route('shops.store') }}" method="POST">
                                     @csrf
                                     <div class="form-floating mb-4">
-                                        <input type="text" value="{{old('name')}}" class="form-control rounded-0{{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" placeholder="{{  translate('Full Name') }}" name="name" required ><label for="name">{{ translate('Full Name') }}<span class="text-danger">*</span></label>
+                                        <input id="seller_reg_name" type="text" value="{{old('name')}}" class="form-control rounded-0{{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" placeholder="{{  translate('Full Name') }}" name="name" required ><label for="seller_reg_name">{{ translate('Full Name') }}<span class="text-danger">*</span></label>
                                         @if ($errors->has('name'))
                                         <p class="invalid-feedback" role="alert">
                                             <small>{{ $errors->first('name') }}</small>
@@ -41,7 +41,7 @@
                                         @endif
                                     </div>
                                     <div class="form-floating mb-4">
-                                        <input type="email" value="{{old('email')}}" class="form-control rounded-0{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{  translate('Email') }}" name="email" required ><label for="email">{{ translate('Email') }}<span class="text-danger">*</span></label>
+                                        <input id="seller_reg_email" type="email" value="{{old('email')}}" class="form-control rounded-0{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{  translate('Email') }}" name="email" required ><label for="seller_reg_email">{{ translate('Email') }}<span class="text-danger">*</span></label>
                                         @if ($errors->has('email'))
                                         <p class="invalid-feedback" role="alert">
                                             <small>{{ $errors->first('email') }}</small>

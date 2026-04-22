@@ -27,7 +27,7 @@
                                 <form id="reg-form" class="form-default" role="form" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-floating mb-4">
-                                        <input type="text" class="form-control rounded-0{{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" placeholder="{{  translate('Full Name') }}" name="name" required><label for="name">{{ translate('Full Name') }} *</label>
+                                        <input id="register_name" type="text" class="form-control rounded-0{{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{ old('name') }}" placeholder="{{  translate('Full Name') }}" name="name" required><label for="register_name">{{ translate('Full Name') }} *</label>
                                         @if ($errors->has('name'))
                                         <span class="invalid-feedback" role="alert">
                                             <small>{{ $errors->first('name') }}</small>
@@ -35,7 +35,7 @@
                                         @endif
                                     </div>
                                     <div class="form-floating mb-4">
-                                        <input type="email" class="form-control rounded-0{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{  translate('Email') }}" name="email" required><label for="email">{{ translate('Email') }} *</label>
+                                        <input id="register_email" type="email" class="form-control rounded-0{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{  translate('Email') }}" name="email" required><label for="register_email">{{ translate('Email') }} *</label>
                                         @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
                                             <small>{{ $errors->first('email') }}</small>

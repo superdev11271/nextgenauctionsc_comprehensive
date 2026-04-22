@@ -16,10 +16,10 @@
                             <div class="fs-14 col-12 col-lg-4 fw-700">{{ translate('Address') }}</div>
                             <div class="col-12">
                                 <div class="form-floating mb-4">
-                                    <textarea type="text" class="form-control textarea-form" id="" value="" name="address"
+                                    <textarea type="text" class="form-control textarea-form" id="new_address_text" value="" name="address"
                                         placeholder="{{ translate('Your Address') }}" rows="5"
                                         onblur="this.value = this.value.trim()===''?'':this.value;" required>{{ old('address') }}</textarea>
-                                    <label for="text">{{ translate('Address') }} <span class="text-danger">
+                                    <label for="new_address_text">{{ translate('Address') }} <span class="text-danger">
                                             *</span></label>
                                     @if ($errors->has('address'))
                                         <p class="text-danger" role="alert">
@@ -32,11 +32,11 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-floating mb-4">
-                                    <input type="text" name="postal_code" class="form-control"
+                                    <input type="text" id="new_postal_code" name="postal_code" class="form-control"
                                         placeholder="{{ translate('Your Postal Code') }}" name="postal_code"
                                         onblur="this.value = this.value.trim()===''?'':this.value;"
                                         value="{{ old('postal_code') }}" required>
-                                    <label for="email">{{ translate('Postal code') }} <span class="text-danger">
+                                    <label for="new_postal_code">{{ translate('Postal code') }} <span class="text-danger">
                                             *</span></label>
                                     @if ($errors->has('postal_code'))
                                         <p class="text-danger" role="alert">
@@ -53,6 +53,7 @@
                             <div class="col-12">
                                 <div class="form-floating mb-2">
                                     <select class="form-control form-select aiz-selectpicker" data-live-search="true"
+                                        id="new_country_id"
                                         data-placeholder="{{ translate('Select your country') }}" name="country_id"
                                         required>
                                         <option value="">{{ translate('Select your country') }}</option>
@@ -61,7 +62,7 @@
                                                 {{ $country->name }}</option>
                                         @endforeach
                                     </select>
-                                    <label for="text">{{ translate('Country') }} <span class="text-danger">
+                                    <label for="new_country_id">{{ translate('Country') }} <span class="text-danger">
                                             *</span></label>
                                 </div>
                             </div>
@@ -70,9 +71,10 @@
                             <div class="col-12">
                                 <div class="form-floating mb-2">
                                     <select class="form-control form-select aiz-selectpicker" data-live-search="true"
+                                        id="new_state_id"
                                         name="state_id" required>
                                     </select>
-                                    <label for="text">{{ translate('State') }} <span
+                                    <label for="new_state_id">{{ translate('State') }} <span
                                             class="text-danger">*</span></label>
                                 </div>
                             </div>
@@ -81,10 +83,10 @@
                             <div class="col-12">
                                 <div class="form-floating mb-2">
                                     <select class="form-control form-select aiz-selectpicker" data-live-search="true"
-                                        name="city_id" required>
+                                        id="new_city_id" name="city_id" required>
 
                                     </select>
-                                    <label for="email">{{ translate('City') }} <span class="text-danger">
+                                    <label for="new_city_id">{{ translate('City') }} <span class="text-danger">
                                             *</span></label>
                                 </div>
 
@@ -93,9 +95,9 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-floating mb-3">
-                                    <input type="text" name="phone" class="form-control" id=""
+                                    <input type="text" name="phone" class="form-control" id="new_phone"
                                         placeholder="Phone No." value="{{ old('phone') }}">
-                                    <label for="email">Phone No. <span class="text-danger"> *</span></label>
+                                    <label for="new_phone">Phone No. <span class="text-danger"> *</span></label>
                                     @if ($errors->has('phone'))
                                         <p class="text-danger" role="alert">
                                             <small>{{ $errors->first('phone') }}</small>

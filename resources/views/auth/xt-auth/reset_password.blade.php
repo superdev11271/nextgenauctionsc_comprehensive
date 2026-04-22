@@ -35,7 +35,7 @@
                                     @csrf    
                                     
                                     <div class="form-floating mb-4">
-                                        <input type="email" class="form-control rounded-0{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{  translate('Email') }}" name="email" required><label for="email">{{ translate('Email') }} *</label>
+                                        <input id="reset_email" type="email" class="form-control rounded-0{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{  translate('Email') }}" name="email" required><label for="reset_email">{{ translate('Email') }} *</label>
                                         @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('email') }}</strong>
@@ -44,7 +44,7 @@
                                     </div>
 
                                     <div class="form-floating mb-4">
-                                        <input id="code" type="text" class="form-control{{ $errors->has('code') ? ' is-invalid' : '' }}" name="code" value="{{ $email ?? old('code') }}" placeholder="{{translate('Code')}}" required autofocus><label for="name">{{ translate('Code') }} *</label>
+                                        <input id="code" type="text" class="form-control{{ $errors->has('code') ? ' is-invalid' : '' }}" name="code" value="{{ $email ?? old('code') }}" placeholder="{{translate('Code')}}" required autofocus><label for="code">{{ translate('Code') }} *</label>
                                         @if ($errors->has('code'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('code') }}</strong>

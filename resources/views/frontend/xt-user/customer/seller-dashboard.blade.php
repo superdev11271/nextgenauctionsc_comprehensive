@@ -43,11 +43,11 @@
                                         <span class="text-danger">*</span></label></div>
                                 </div>
                                 <div class="col-sm-6 mb-3">
-                                    <div class="form-floating"><input type="number" class="form-control"
-                                        placeholder="{{ translate('Your Phone')}}" name="phone" value="{{ Auth::user()->phone }}"><label for="number">{{ translate('Your Phone')}}</label></div>
+                                    <div class="form-floating"><input type="number" id="seller_profile_phone" class="form-control"
+                                        placeholder="{{ translate('Your Phone')}}" name="phone" value="{{ Auth::user()->phone }}"><label for="seller_profile_phone">{{ translate('Your Phone')}}</label></div>
                                 </div>
                                 <div class="col-sm-6 mb-3">
-                                    <div class="form-floating"><input type="email" class="form-control"  placeholder="{{ translate('Your Email')}}" name="email" value="{{ Auth::user()->email }}" required><label for="email">{{ translate('Your Email')}}<span class="text-danger">*</span></label></div>
+                                    <div class="form-floating"><input type="email" id="seller_profile_email" class="form-control"  placeholder="{{ translate('Your Email')}}" name="email" value="{{ Auth::user()->email }}" required><label for="seller_profile_email">{{ translate('Your Email')}}<span class="text-danger">*</span></label></div>
                                 </div>
 
                                 {{-- <div class="col-sm-6 mb-3">
@@ -100,8 +100,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6 mb-3">
-                                    <div class="form-floating"><input type="number" class="form-control"
-                                        placeholder="{{ translate('Your Phone')}}"   name="phone" value="{{ Auth::user()->shop?->phone }}"><label for="number">{{ translate('Business Phone')}}<span
+                                    <div class="form-floating"><input type="number" id="business_phone" class="form-control"
+                                        placeholder="{{ translate('Your Phone')}}"   name="phone" value="{{ Auth::user()->shop?->phone }}"><label for="business_phone">{{ translate('Business Phone')}}<span
                                                 class="text-danger">*</span></label></div>
                                         @FieldError('phone')
                                 </div>
@@ -114,8 +114,8 @@
                                 </div>
 
                                 <div class="col-sm-6 mb-3">
-                                    <div class="form-floating"><input type="text" class="form-control"
-                                        placeholder="{{ translate('GST Number')}}"  name="gst_number" value="{{ Auth::user()->shop?->gst_number }}"><label for="number">{{ translate('GST Number')}}<span
+                                    <div class="form-floating"><input type="text" id="gst_number" class="form-control"
+                                        placeholder="{{ translate('GST Number')}}"  name="gst_number" value="{{ Auth::user()->shop?->gst_number }}"><label for="gst_number">{{ translate('GST Number')}}<span
                                                 class="text-danger">*</span></label></div>
                                 </div>
 
