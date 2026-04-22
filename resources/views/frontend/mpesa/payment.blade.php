@@ -9,7 +9,7 @@
                     <div class="card">
                         <div class="align-items-center card-header d-flex justify-content-center text-center" >
                             <h3 class="d-inline-block heading-4 mb-0 mr-3 strong-600" >{{translate('Payment Details')}}</h3>
-                            <img loading="lazy"  class="img-fluid" srcna="http://i76.imgup.net/accepted_c22e0.png" height="30">
+                            <img loading="lazy" class="img-fluid" src="http://i76.imgup.net/accepted_c22e0.png" height="30" alt="{{ translate('Accepted payment methods') }}">
                         </div>
                         <div class="card-body">
                             <form action="{{ route('mpesa.pay') }}" method="POST">

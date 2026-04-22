@@ -35,7 +35,7 @@
 								</div>
 								<div class="col-md-3 col-5">
 									<div class="custom-control custom-radio">
-										<input type="checkbox" class="custom-control-input" name="aiz-show-selected" id="aiz-show-selected" name="stylishRadio">
+										<input type="checkbox" class="custom-control-input" name="aiz-show-selected" id="aiz-show-selected">
 										<label class="custom-control-label" for="aiz-show-selected">
 										{{ translate('Selected Only') }}
 										</label>
