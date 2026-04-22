@@ -15,12 +15,12 @@
         <input type="text" name="currency" value="{{ env('PAYHERE_CURRENCY') }}">
         <input type="text" name="amount" value="{{ $amount }}">
         <br><br>Customer Details<br>
-        <input type="text" name="first_name" value="{{ $first_name }}">
-        <input type="text" name="last_name" value="{{ $last_name }}"><br>
-        <input type="text" name="email" value="{{ $email }}">
-        <input type="text" name="phone" value="{{ $phone }}"><br>
-        <input type="text" name="address" value="{{ $address }}">
-        <input type="text" name="city" value="{{ $city }}">
+        <input type="text" name="first_name" autocomplete="given-name" value="{{ $first_name }}">
+        <input type="text" name="last_name" autocomplete="family-name" value="{{ $last_name }}"><br>
+        <input type="text" name="email" autocomplete="email" value="{{ $email }}">
+        <input type="text" name="phone" autocomplete="tel" value="{{ $phone }}"><br>
+        <input type="text" name="address" autocomplete="street-address" value="{{ $address }}">
+        <input type="text" name="city" autocomplete="address-level2" value="{{ $city }}">
         <input type="hidden" name="country" value="Sri Lanka"><br><br>
         <input type="hidden" name="hash" value="{{ $hash_value }}">
         <input type="submit" value="Buy Now">
