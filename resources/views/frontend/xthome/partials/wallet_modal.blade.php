@@ -11,11 +11,11 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-4">
-                            <label>{{ translate('Payment Method') }} <span class="text-danger">*</span></label>
+                            <label for="wallet_payment_option">{{ translate('Payment Method') }} <span class="text-danger">*</span></label>
                         </div>
                         <div class="col-md-8">
                             <div class="mb-3">
-                                <select class="form-control selectpicker rounded-0"
+                                <select id="wallet_payment_option" class="form-control selectpicker rounded-0"
                                     data-minimum-results-for-search="Infinity" name="payment_option"
                                     data-live-search="true">
                                     @if (get_setting('paypal_payment') == 1)
@@ -99,10 +99,10 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <label>{{ translate('Amount') }} <span class="text-danger">*</span></label>
+                            <label for="wallet_recharge_amount">{{ translate('Amount') }} <span class="text-danger">*</span></label>
                         </div>
                         <div class="col-md-8">
-                            <input type="number" lang="en" class="form-control mb-3 rounded-0" name="amount"
+                            <input type="number" id="wallet_recharge_amount" lang="en" class="form-control mb-3 rounded-0" name="amount"
                                 placeholder="{{ translate('Amount') }}" required>
                         </div>
                     </div>

@@ -80,11 +80,11 @@
                     <input type="hidden" id="package_id" name="package_id" value="">
                     <div class="row">
                         <div class="col-md-2">
-                            <label>{{ translate('Payment Type') }}</label>
+                            <label for="customer_package_payment_type">{{ translate('Payment Type') }}</label>
                         </div>
                         <div class="col-md-10">
                             <div class="mb-3">
-                                <select class="form-control aiz-selectpicker rounded-0" onchange="payment_type(this.value)"
+                                <select id="customer_package_payment_type" class="form-control aiz-selectpicker rounded-0" onchange="payment_type(this.value)"
                                     data-minimum-results-for-search="Infinity">
                                     <option value="">{{ translate('Select One') }}</option>
                                     <option value="online">{{ translate('Online payment') }}</option>
@@ -119,11 +119,11 @@
                         <input type="hidden" name="customer_package_id" value="">
                         <div class="row">
                             <div class="col-md-2">
-                                <label>{{ translate('Payment Method') }}</label>
+                                <label for="customer_package_payment_option">{{ translate('Payment Method') }}</label>
                             </div>
                             <div class="col-md-10">
                                 <div class="mb-3">
-                                    <select class="form-control selectpicker rounded-0" data-live-search="true"
+                                    <select id="customer_package_payment_option" class="form-control selectpicker rounded-0" data-live-search="true"
                                         name="payment_option">
                                         @if (get_setting('paypal_payment') == 1)
                                             <option value="paypal">{{ translate('Paypal') }}</option>

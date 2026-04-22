@@ -96,7 +96,7 @@
                                 <div class="form-group">
 
                                     <div class="position-relative mb-4">
-                                        <label for="" class="form-label">Message</label>
+                                        <label for="message" class="form-label">Message</label>
                                         <select class="form-select form-select-lg theam-select" name="chat_tamplate_id"
                                             id="message" required>
                                             <option value="" selected disabled>Select Message</option>

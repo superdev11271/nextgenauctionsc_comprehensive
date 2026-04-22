@@ -23,7 +23,7 @@
                                 <form class="form-default" role="form" action="{{ route('login') }}" method="POST">
                                     @csrf
                                     <div class="form-floating mb-4">
-                                        <div class="form-floating mb-4"><input type="email" id="user_login_email" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}"  placeholder="{{  translate('johndoe@example.com') }}"><label for="user_login_email">{{  translate('Email') }}</label></div>
+                                    <div class="form-floating mb-4"><input type="email" id="user_login_email" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}"  placeholder="{{  translate('johndoe@example.com') }}" autocomplete="username"><label for="user_login_email">{{  translate('Email') }}</label></div>
                                         @if ($errors->has('email'))
                                         <p class="invalid-feedback" role="alert">
                                             <small> {!! $errors->first('email') !!}</small>
@@ -31,7 +31,7 @@
                                         @endif
                                     </div>
                                     <div class="form-floating mb-0">
-                                        <div class="form-floating mb-0"><input type="password" name="password" class="form-control" id="user_login_password" placeholder="{{  translate('Password') }}"><label for="user_login_password">{{  translate('Password') }} *</label></div>
+                                        <div class="form-floating mb-0"><input type="password" name="password" class="form-control" id="user_login_password" placeholder="{{  translate('Password') }}" autocomplete="current-password"><label for="user_login_password">{{  translate('Password') }} *</label></div>
                                         <i class="password-toggle las la-2x la-eye"></i>
                                         @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">

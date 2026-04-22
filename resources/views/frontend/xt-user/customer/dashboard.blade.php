@@ -129,7 +129,7 @@
                                 </div>
 
                                 {{-- <div class="col-sm-6 mb-3">
-                                    <div class="form-floating"><input type="file" accept=".jpg,.png,.jpeg,.gif" class="form-control" placeholder="{{ translate('Profile Image')}}" name="photo" ><label for="photo">{{ translate('Profile Image') }}
+                                    <div class="form-floating"><input type="file" id="profile_photo" accept=".jpg,.png,.jpeg,.gif" class="form-control" placeholder="{{ translate('Profile Image')}}" name="photo" ><label for="profile_photo">{{ translate('Profile Image') }}
                                         <span class="text-danger">*</span></label></div>
                                 </div> --}}
 
@@ -144,22 +144,22 @@
                                 </div>
 
                                 <div class="col-sm-4 mb-3">
-                                    <div class="form-floating"><input type="text" class="form-control" placeholder="{{ translate('Street Number') }}" name="street_number" value="{{ Auth::user()->street_number }}"><label>{{ translate('Street Number') }}</label></div>
+                                    <div class="form-floating"><input type="text" id="street_number" class="form-control" placeholder="{{ translate('Street Number') }}" name="street_number" value="{{ Auth::user()->street_number }}"><label for="street_number">{{ translate('Street Number') }}</label></div>
                                 </div>
                                 <div class="col-sm-8 mb-3">
-                                    <div class="form-floating"><input type="text" class="form-control" placeholder="{{ translate('Street Name') }}" name="street_name" value="{{ Auth::user()->street_name }}"><label>{{ translate('Street Name') }}</label></div>
+                                    <div class="form-floating"><input type="text" id="street_name" class="form-control" placeholder="{{ translate('Street Name') }}" name="street_name" value="{{ Auth::user()->street_name }}"><label for="street_name">{{ translate('Street Name') }}</label></div>
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <div class="form-floating"><input type="text" class="form-control" placeholder="{{ translate('Suburb') }}" name="suburb" value="{{ Auth::user()->suburb }}"><label>{{ translate('Suburb') }}</label></div>
+                                    <div class="form-floating"><input type="text" id="suburb" class="form-control" placeholder="{{ translate('Suburb') }}" name="suburb" value="{{ Auth::user()->suburb }}"><label for="suburb">{{ translate('Suburb') }}</label></div>
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <div class="form-floating"><input type="text" class="form-control" placeholder="{{ translate('Postcode') }}" name="postal_code" value="{{ Auth::user()->postal_code }}"><label>{{ translate('Postcode') }}</label></div>
+                                    <div class="form-floating"><input type="text" id="postal_code" class="form-control" placeholder="{{ translate('Postcode') }}" name="postal_code" value="{{ Auth::user()->postal_code }}"><label for="postal_code">{{ translate('Postcode') }}</label></div>
                                 </div>
                                 <div class="col-sm-4 mb-3">
-                                    <div class="form-floating"><input type="text" class="form-control" placeholder="{{ translate('State') }}" name="state" value="{{ Auth::user()->state }}"><label>{{ translate('State') }}</label></div>
+                                    <div class="form-floating"><input type="text" id="state" class="form-control" placeholder="{{ translate('State') }}" name="state" value="{{ Auth::user()->state }}"><label for="state">{{ translate('State') }}</label></div>
                                 </div>
                                 <div class="col-sm-6 mb-3">
-                                    <div class="form-floating"><input type="text" class="form-control" placeholder="{{ translate('Driving Licence Number') }}" name="govt_id" value="{{ Auth::user()->govt_id }}"><label>{{ translate('Driving Licence Number') }}</label></div>
+                                    <div class="form-floating"><input type="text" id="govt_id" class="form-control" placeholder="{{ translate('Driving Licence Number') }}" name="govt_id" value="{{ Auth::user()->govt_id }}"><label for="govt_id">{{ translate('Driving Licence Number') }}</label></div>
                                 </div>
                                 <div class="col-sm-6 mb-3">
                                     <div class="input-group form-control" data-toggle="aizuploader" data-type="image">
@@ -172,26 +172,26 @@
                                 </div>
 
                                 <div class="col-sm-12 mb-2">
-                                    <label class="mr-3">{{ translate('Business Account') }}:</label>
+                                    <span class="mr-3">{{ translate('Business Account') }}:</span>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="is_business" value="1" {{ Auth::user()->is_business ? 'checked' : '' }}>
-                                        <label class="form-check-label">{{ translate('Yes') }}</label>
+                                        <input class="form-check-input" id="is_business_yes" type="radio" name="is_business" value="1" {{ Auth::user()->is_business ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="is_business_yes">{{ translate('Yes') }}</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="is_business" value="0" {{ !Auth::user()->is_business ? 'checked' : '' }}>
-                                        <label class="form-check-label">{{ translate('No') }}</label>
+                                        <input class="form-check-input" id="is_business_no" type="radio" name="is_business" value="0" {{ !Auth::user()->is_business ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="is_business_no">{{ translate('No') }}</label>
                                     </div>
                                 </div>
                                 <div id="business-fields" class="col-12">
                                     <div class="row">
                                         <div class="col-sm-4 mb-3">
-                                            <div class="form-floating"><input type="text" class="form-control" placeholder="{{ translate('Business Name') }}" name="business_name" value="{{ Auth::user()->business_name }}"><label>{{ translate('Business Name') }}</label></div>
+                                            <div class="form-floating"><input type="text" id="business_name" class="form-control" placeholder="{{ translate('Business Name') }}" name="business_name" value="{{ Auth::user()->business_name }}"><label for="business_name">{{ translate('Business Name') }}</label></div>
                                         </div>
                                         <div class="col-sm-4 mb-3">
-                                            <div class="form-floating"><input type="text" class="form-control" placeholder="{{ translate('ABN/CAN') }}" name="abn_can" value="{{ Auth::user()->abn_can }}"><label>{{ translate('ABN/CAN') }}</label></div>
+                                            <div class="form-floating"><input type="text" id="abn_can" class="form-control" placeholder="{{ translate('ABN/CAN') }}" name="abn_can" value="{{ Auth::user()->abn_can }}"><label for="abn_can">{{ translate('ABN/CAN') }}</label></div>
                                         </div>
                                         <div class="col-sm-4 mb-3">
-                                            <div class="form-floating"><input type="text" class="form-control" placeholder="{{ translate('Business Phone') }}" name="business_phone" value="{{ Auth::user()->business_phone }}"><label>{{ translate('Business Phone') }}</label></div>
+                                            <div class="form-floating"><input type="text" id="business_phone_field" class="form-control" placeholder="{{ translate('Business Phone') }}" name="business_phone" value="{{ Auth::user()->business_phone }}"><label for="business_phone_field">{{ translate('Business Phone') }}</label></div>
                                         </div>
                                     </div>
                                 </div>

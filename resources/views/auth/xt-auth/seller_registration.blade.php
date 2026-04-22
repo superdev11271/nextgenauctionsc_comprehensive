@@ -41,7 +41,7 @@
                                         @endif
                                     </div>
                                     <div class="form-floating mb-4">
-                                        <input id="seller_reg_email" type="email" value="{{old('email')}}" class="form-control rounded-0{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{  translate('Email') }}" name="email" required ><label for="seller_reg_email">{{ translate('Email') }}<span class="text-danger">*</span></label>
+                                        <input id="seller_reg_email" type="email" value="{{old('email')}}" class="form-control rounded-0{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{  translate('Email') }}" name="email" autocomplete="email" required ><label for="seller_reg_email">{{ translate('Email') }}<span class="text-danger">*</span></label>
                                         @if ($errors->has('email'))
                                         <p class="invalid-feedback" role="alert">
                                             <small>{{ $errors->first('email') }}</small>
@@ -52,7 +52,7 @@
                                     <div class="form-floating mb-0">
                                         <span class="view-password"><i class="far fa-eye-slash" aria-hidden="true"></i> </span>
                                         <input type="password" name="password"  oninput="this.value = this.value.replace(/\s/g, '')"
-                                        id="password" class="form-control rounded-0 " placeholder="{{  translate('Password') }}"><label for="password">{{ translate('Password') }} <span class="text-danger">*</span></label>
+                                        id="password" class="form-control rounded-0 " placeholder="{{  translate('Password') }}" autocomplete="new-password"><label for="password">{{ translate('Password') }} <span class="text-danger">*</span></label>
                                         <div class="text-right mt-1">
                                             <span class="fs-12 fw-400">{{ translate('Password must be at least 8 characters long.') }}</span>
                                         </div>
@@ -66,7 +66,7 @@
                                     <div class="form-floating mt-4">
                                         <span class="view-password"><i class="far fa-eye-slash" aria-hidden="true"></i> </span>
                                         <input type="password" name="password_confirmation"  oninput="this.value = this.value.replace(/\s/g, '')"
-                                        class="form-control rounded-0" id="password_confirmation" placeholder="{{  translate('Confirm Password') }}"><label for="password_confirmation">{{ translate('Confirm Password') }} <span class="text-danger">*</span></label>
+                                        class="form-control rounded-0" id="password_confirmation" placeholder="{{  translate('Confirm Password') }}" autocomplete="new-password"><label for="password_confirmation">{{ translate('Confirm Password') }} <span class="text-danger">*</span></label>
                                         @if ($errors->has('confirm_password'))
                                         <p class="text-danger" role="alert">
                                             <small>{{ $errors->first('confirm_password') }}</small>

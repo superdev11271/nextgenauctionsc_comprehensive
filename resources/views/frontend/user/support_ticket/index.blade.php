@@ -80,19 +80,19 @@
                         @csrf
                         <div class="row">
                             <div class="col-md-2">
-                                <label>{{ translate('Subject')}}</label>
+                                <label for="ticket_subject">{{ translate('Subject')}}</label>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control mb-3 rounded-0" placeholder="{{ translate('Subject')}}" name="subject" required>
+                                <input type="text" id="ticket_subject" class="form-control mb-3 rounded-0" placeholder="{{ translate('Subject')}}" name="subject" required>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-2">
-                                <label>{{ translate('Provide a detailed description')}}</label>
+                                <label for="ticket_details">{{ translate('Provide a detailed description')}}</label>
                             </div>
                             <div class="col-md-10">
-                                <textarea type="text" class="form-control mb-3 rounded-0" rows="3" name="details" placeholder="{{ translate('Type your reply')}}" data-buttons="bold,underline,italic,|,ul,ol,|,paragraph,|,undo,redo" required></textarea>
+                                <textarea type="text" id="ticket_details" class="form-control mb-3 rounded-0" rows="3" name="details" placeholder="{{ translate('Type your reply')}}" data-buttons="bold,underline,italic,|,ul,ol,|,paragraph,|,undo,redo" required></textarea>
                             </div>
                         </div>
                         <div class="form-group row">

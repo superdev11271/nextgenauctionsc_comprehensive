@@ -24,7 +24,7 @@
                                 <div class="form-floating mb-4">
                                     <div class="form-floating mb-4"><input type="email" name="email"
                                             class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                            id="email" placeholder="Email Address" ><label for="email">{{__('Email Address')}} <span class="text-danger">*</span> </label>
+                                            id="email" placeholder="Email Address" autocomplete="username" ><label for="email">{{__('Email Address')}} <span class="text-danger">*</span> </label>
                                     @if ($errors->has('email'))
                                         <p class="text-danger" role="alert">
                                             <small>{!! $errors->first('email') !!}</small>
@@ -35,7 +35,7 @@
                                     <span class="view-password"><i class="far fa-eye-slash" aria-hidden="true"></i> </span>
 
                                     <input type="password" name="password"
-                                            class="form-control" id="password" placeholder="Password" oninput="this.value = this.value.replace(/\s/g, '')" autocomplete="off" ><label
+                                            class="form-control" id="password" placeholder="Password" oninput="this.value = this.value.replace(/\s/g, '')" autocomplete="current-password" ><label
                                             for="password">{{__('Password')}} <span class="text-danger">*</span> </label>
 
                                     @if ($errors->has('password'))

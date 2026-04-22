@@ -30,19 +30,19 @@
                 <!-- Amount -->
                 <div class="row mt-3">
                     <div class="col-md-3">
-                        <label>{{ translate('Amount')}} <span class="text-danger">*</span></label>
+                        <label for="offline_wallet_amount">{{ translate('Amount')}} <span class="text-danger">*</span></label>
                     </div>
                     <div class="col-md-9">
-                        <input type="number" lang="en" class="form-control mb-3 rounded-0" min="0" step="0.01" name="amount" placeholder="{{ translate('Amount') }}" required>
+                        <input type="number" id="offline_wallet_amount" lang="en" class="form-control mb-3 rounded-0" min="0" step="0.01" name="amount" placeholder="{{ translate('Amount') }}" required>
                     </div>
                 </div>
                 <!-- Transaction ID -->
                 <div class="row">
                     <div class="col-md-3">
-                        <label>{{ translate('Transaction ID')}} <span class="text-danger">*</span></label>
+                        <label for="offline_wallet_trx_id">{{ translate('Transaction ID')}} <span class="text-danger">*</span></label>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control mb-3 rounded-0" name="trx_id" placeholder="{{ translate('Transaction ID') }}" required>
+                        <input type="text" id="offline_wallet_trx_id" class="form-control mb-3 rounded-0" name="trx_id" placeholder="{{ translate('Transaction ID') }}" required>
                     </div>
                 </div>
                 <!-- Payment screenshot -->

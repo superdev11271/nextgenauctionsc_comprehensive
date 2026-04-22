@@ -35,7 +35,7 @@
                                     @csrf    
                                     
                                     <div class="form-floating mb-4">
-                                        <input id="reset_email" type="email" class="form-control rounded-0{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{  translate('Email') }}" name="email" required><label for="reset_email">{{ translate('Email') }} *</label>
+                                        <input id="reset_email" type="email" class="form-control rounded-0{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{  translate('Email') }}" name="email" autocomplete="email" required><label for="reset_email">{{ translate('Email') }} *</label>
                                         @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('email') }}</strong>
@@ -54,7 +54,7 @@
 
                                     <div class="form-floating mb-0">
                                         <span class="view-password"><i class="far fa-eye-slash" aria-hidden="true"></i> </span>
-                                        <input type="password" name="password" id="password"  class="form-control rounded-0 " placeholder="{{  translate('Password') }}" required><label for="password">{{ translate('New Password') }} *</label>
+                                        <input type="password" name="password" id="password"  class="form-control rounded-0 " placeholder="{{  translate('Password') }}" autocomplete="new-password" required><label for="password">{{ translate('New Password') }} *</label>
                                         @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('password') }}</strong>
@@ -64,7 +64,7 @@
 
                                     <div class="form-floating mt-4">
                                         <span class="view-password"><i class="far fa-eye-slash" aria-hidden="true"></i> </span>
-                                        <input type="password" name="password_confirmation" class="form-control rounded-0" id="password_confirmation" placeholder="{{  translate('Confirm Password') }}" required><label for="password_confirmation">{{ translate('Confirm Password') }} *</label>
+                                        <input type="password" name="password_confirmation" class="form-control rounded-0" id="password_confirmation" placeholder="{{  translate('Confirm Password') }}" autocomplete="new-password" required><label for="password_confirmation">{{ translate('Confirm Password') }} *</label>
                                         @if ($errors->has('confirm_password'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('confirm_password') }}</strong>

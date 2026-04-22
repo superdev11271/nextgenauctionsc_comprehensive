@@ -68,7 +68,7 @@
                                             </div>    
                                             <div class="row">
                                                 <div class="form-group col-md-6" id="expiration-date">
-                                                    <label>Expiration Date</label><br/>
+                                                    <label for="expiration-month">Expiration Date</label><br/>
                                                     <select class="form-control" id="expiration-month" name="expiration-month" style="float: left; width: 100px; margin-right: 10px;">
                                                         @foreach($months as $k=>$v)
                                                             <option value="{{ $k }}" {{ old('expiration-month') == $k ? 'selected' : '' }}>{{ $v }}</option>                                                        

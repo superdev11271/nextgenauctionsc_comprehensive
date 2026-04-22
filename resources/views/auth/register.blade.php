@@ -35,7 +35,7 @@
                                         @endif
                                     </div>
                                     <div class="form-floating mb-4">
-                                        <input id="register_email" type="email" class="form-control rounded-0{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{  translate('Email') }}" name="email" required><label for="register_email">{{ translate('Email') }} *</label>
+                                        <input id="register_email" type="email" class="form-control rounded-0{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{  translate('Email') }}" name="email" autocomplete="email" required><label for="register_email">{{ translate('Email') }} *</label>
                                         @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
                                             <small>{{ $errors->first('email') }}</small>
@@ -47,7 +47,7 @@
 
                                     <div class="form-floating mb-4">
                                         <span class="view-password"><i class="far fa-eye-slash" aria-hidden="true"></i> </span>
-                                        <input type="password" name="password" id="password" class="form-control rounded-0 " placeholder="{{  translate('Password') }}" required autocomplete="off"><label for="password">{{ translate('Password') }} *</label>
+                                        <input type="password" name="password" id="password" class="form-control rounded-0 " placeholder="{{  translate('Password') }}" required autocomplete="new-password"><label for="password">{{ translate('Password') }} *</label>
                                         @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
                                             <small>{{ $errors->first('password') }}</small>
@@ -57,7 +57,7 @@
 
                                     <div class="form-floating mt-4">
                                         <span class="view-password"><i class="far fa-eye-slash" aria-hidden="true"></i> </span>
-                                        <input type="password" name="password_confirmation" class="form-control rounded-0" id="password_confirmation" placeholder="{{  translate('Confirm Password') }}" required autocomplete="off"><label for="password_confirmation">{{ translate('Confirm Password') }} *</label>
+                                        <input type="password" name="password_confirmation" class="form-control rounded-0" id="password_confirmation" placeholder="{{  translate('Confirm Password') }}" required autocomplete="new-password"><label for="password_confirmation">{{ translate('Confirm Password') }} *</label>
                                         @if ($errors->has('confirm_password'))
                                         <span class="invalid-feedback" role="alert">
                                             <small>{{ $errors->first('confirm_password') }}</small>
@@ -100,7 +100,7 @@
 
                                     <div class="form-group">
                                         <div class="form-check text-start my-3 d-flex justify-content-between">
-                                            <div><input class="form-check-input" type="checkbox" id="flexCheckDefault1" name="checkbox_example_1" required><label class="form-check-label" for="flexCheckDefault">{{ translate('By signing up you agree to our ')}} <a href="{{ route('terms') }}" class="form-check-label">{{ translate('terms and conditions.') }}</a></label></div>
+                                            <div><input class="form-check-input" type="checkbox" id="flexCheckDefault1" name="checkbox_example_1" required><label class="form-check-label" for="flexCheckDefault1">{{ translate('By signing up you agree to our ')}} <a href="{{ route('terms') }}" class="form-check-label">{{ translate('terms and conditions.') }}</a></label></div>
                                         </div>
                                     </div>
                                     <div class="col">

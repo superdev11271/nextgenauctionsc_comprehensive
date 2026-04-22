@@ -69,7 +69,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-4">
                                                     <input id="user_registration_email" type="email" class="form-control rounded-0 {{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                                        placeholder="Email" name="email" value="{{ old('email') }}" required>
+                                                        placeholder="Email" name="email" value="{{ old('email') }}" autocomplete="email" required>
                                                     <label for="user_registration_email">Email <span class="text-danger">*</span></label>
                                                     @if ($errors->has('email'))
                                                     <span class="invalid-feedback" role="alert">
@@ -103,7 +103,7 @@
                                                 <div class="form-floating mb-4">
                                                     <span class="view-password"><i class="far fa-eye-slash" aria-hidden="true"></i></span>
                                                     <input type="password" name="password" id="password" oninput="this.value = this.value.replace(/\s/g, '')"
-                                                        class="form-control rounded-0" placeholder="Password" required autocomplete="off">
+                                                        class="form-control rounded-0" placeholder="Password" required autocomplete="new-password">
                                                     <label for="password">Password <span class="text-danger">*</span></label>
                                                     <small>* Password must include at least one lowercase, uppercase, number, and special character.</small>
                                                     @if ($errors->has('password'))
@@ -117,7 +117,7 @@
                                                 <div class="form-floating mb-4">
                                                     <span class="view-password"><i class="far fa-eye-slash" aria-hidden="true"></i></span>
                                                     <input type="password" name="password_confirmation" oninput="this.value = this.value.replace(/\s/g, '')"
-                                                        class="form-control rounded-0" id="password_confirmation" placeholder="Confirm Password" required autocomplete="off">
+                                                        class="form-control rounded-0" id="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password">
                                                     <label for="password_confirmation">Confirm Password <span class="text-danger">*</span></label>
                                                 </div>
                                             </div>

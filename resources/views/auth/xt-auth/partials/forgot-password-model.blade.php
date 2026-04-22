@@ -12,7 +12,7 @@
                     <div class="form-floating mb-4">
                         <input type="email" id="forgot_password_email" required class="form-control"
                         {{-- {{ $errors->has('email') ? ' is-invalid' : '' }} " --}}
-                          value="{{ old('email') }}" placeholder="{{translate('johndoe@example.com') }}" name="email"  autocomplete="off"><label for="forgot_password_email">{{  translate('Email') }}</label>
+                          value="{{ old('email') }}" placeholder="{{translate('johndoe@example.com') }}" name="email"  autocomplete="email"><label for="forgot_password_email">{{  translate('Email') }}</label>
                     {{-- <div id="div1">
                         @if ($errors->has('email'))
                             <span class="text-danger" role="alert" >
