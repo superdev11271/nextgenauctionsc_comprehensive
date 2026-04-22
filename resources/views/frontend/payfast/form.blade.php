@@ -18,7 +18,7 @@
         <input type="text" name="amount" value="{{ $amount }}">
         <input type="text" name="payment_method" value="">
         <input type="text" name="signature" value="{{ $signature }}">
-        <input type="submit" value="Pay Now">
+        <input type="submit" id="payfast_submit" name="payfast_submit" value="Pay Now">
 
     </form>
 

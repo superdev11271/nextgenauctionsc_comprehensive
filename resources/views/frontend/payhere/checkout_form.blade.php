@@ -23,7 +23,7 @@
         <input type="text" name="city" autocomplete="address-level2" value="{{ $city }}">
         <input type="hidden" name="country" value="Sri Lanka"><br><br>
         <input type="hidden" name="hash" value="{{ $hash_value }}">
-        <input type="submit" value="Buy Now">
+        <input type="submit" id="payhere_checkout_submit" name="payhere_checkout_submit" value="Buy Now">
 
     </form>
 

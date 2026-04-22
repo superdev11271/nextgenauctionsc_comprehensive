@@ -21,7 +21,7 @@
                         <input type="search" class="form-control" id="search"
                             name="keyword"@isset($query) value="{{ $query }}" @endisset
                             placeholder="{{ translate('I am shopping for...') }}" autocomplete="off">
-                        <input type="submit" value="Search Now!" class="theme-btn style-four">
+                        <input type="submit" id="header_search_submit" name="header_search_submit" value="Search Now!" class="theme-btn style-four">
                     </fieldset>
                 </div>
             </form>

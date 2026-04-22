@@ -6,10 +6,14 @@
 @push('js')
 <script>
         $(document).ready(function() {
+            // Guard validation setup if jquery-validate is not loaded on this page.
+            if (!(window.jQuery && $.validator && $.fn && $.fn.validate)) {
+                return;
+            }
+
             $.validator.addMethod('customWhitespaceValidation', function(value, element) {
                 return this.optional(element) || /\S/.test(value);
             }, 'Whitespaces are not allowed.');
-
 
             $("#profile_update_form").validate({
                 rules: {
