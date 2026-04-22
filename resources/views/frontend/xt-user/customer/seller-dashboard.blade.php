@@ -38,7 +38,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6 mb-3">
-                                    <div class="form-floating"><input type="text" class="form-control" placeholder="{{ translate('Your Name') }}" name="name"     oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'')"
+                                    <div class="form-floating"><input type="text" class="form-control" placeholder="{{ translate('Your Name') }}" name="name" autocomplete="name"     oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'')"
                                         id="name" value="{{ Auth::user()->name }}" required><label for="name">{{ translate('Your Name') }}
                                         <span class="text-danger">*</span></label></div>
                                 </div>
@@ -86,7 +86,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6 mb-3">
-                                    <div class="form-floating"><input type="text" class="form-control" placeholder="{{ translate('Your Name') }}"  name="name" id="name" value="{{ Auth::user()->shop?->name }}" required><label for="name">{{ translate('Business Name') }}
+                                    <div class="form-floating"><input type="text" class="form-control" placeholder="{{ translate('Your Name') }}"  name="name" id="name" autocomplete="organization" value="{{ Auth::user()->shop?->name }}" required><label for="name">{{ translate('Business Name') }}
                                         <span class="text-danger">*</span></label></div>
                                     @FieldError('name')
                                 </div>
@@ -102,6 +102,7 @@
                                 </div>
                                 <div class="col-sm-6 mb-3">
                                     <div class="form-floating"><input type="number" id="business_phone" class="form-control"
+                                        autocomplete="tel"
                                         placeholder="{{ translate('Your Phone')}}"   name="phone" value="{{ Auth::user()->shop?->phone }}"><label for="business_phone">{{ translate('Business Phone')}}<span
                                                 class="text-danger">*</span></label></div>
                                         @FieldError('phone')

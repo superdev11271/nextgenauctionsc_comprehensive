@@ -109,15 +109,15 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6 mb-3">
-                                    <div class="form-floating"><input type="text" class="form-control"  oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'')" placeholder="{{ translate('Your Name') }}" name="name" id="name" value="{{ Auth::user()->name }}" required><label for="name">{{ translate('Your Name') }}
+                                    <div class="form-floating"><input type="text" class="form-control"  oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'')" placeholder="{{ translate('Your Name') }}" name="name" id="name" autocomplete="name" value="{{ Auth::user()->name }}" required><label for="name">{{ translate('Your Name') }}
                                         <span class="text-danger">*</span></label></div>
                                 </div>
                                 <div class="col-sm-6 mb-3">
-                                    <div class="form-floating"><input type="text" class="form-control"  oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'')" placeholder="{{ translate('First Name') }}" name="first_name" id="first_name" value="{{ Auth::user()->first_name }}" required><label for="first_name">{{ translate('First Name') }}
+                                    <div class="form-floating"><input type="text" class="form-control"  oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'')" placeholder="{{ translate('First Name') }}" name="first_name" id="first_name" autocomplete="given-name" value="{{ Auth::user()->first_name }}" required><label for="first_name">{{ translate('First Name') }}
                                         <span class="text-danger">*</span></label></div>
                                 </div>
                                 <div class="col-sm-6 mb-3">
-                                    <div class="form-floating"><input type="text" class="form-control"  oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'')" placeholder="{{ translate('Last Name') }}" name="last_name" id="last_name" value="{{ Auth::user()->last_name }}" required><label for="last_name">{{ translate('Last Name') }}
+                                    <div class="form-floating"><input type="text" class="form-control"  oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'')" placeholder="{{ translate('Last Name') }}" name="last_name" id="last_name" autocomplete="family-name" value="{{ Auth::user()->last_name }}" required><label for="last_name">{{ translate('Last Name') }}
                                         <span class="text-danger">*</span></label></div>
                                 </div>
                                 <div class="col-sm-6 mb-3">

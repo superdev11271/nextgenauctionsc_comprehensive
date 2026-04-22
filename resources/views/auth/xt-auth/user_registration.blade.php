@@ -39,8 +39,9 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-4">
-                                                    <input type="text" class="form-control rounded-0 {{ $errors->has('first_name') ? ' is-invalid' : '' }}"
+                                                    <input id="first_name" type="text" class="form-control rounded-0 {{ $errors->has('first_name') ? ' is-invalid' : '' }}"
                                                         placeholder="First Name" name="first_name" value="{{ old('first_name') }}"
+                                                        autocomplete="given-name"
                                                         oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'')" required>
                                                     <label for="first_name">First Name <span class="text-danger">*</span></label>
                                                     @if ($errors->has('first_name'))
@@ -52,8 +53,9 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-4">
-                                                    <input type="text" class="form-control rounded-0 {{ $errors->has('last_name') ? ' is-invalid' : '' }}"
+                                                    <input id="last_name" type="text" class="form-control rounded-0 {{ $errors->has('last_name') ? ' is-invalid' : '' }}"
                                                         placeholder="Last Name" name="last_name" value="{{ old('last_name') }}"
+                                                        autocomplete="family-name"
                                                         oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'')" required>
                                                     <label for="last_name">Last Name <span class="text-danger">*</span></label>
                                                     @if ($errors->has('last_name'))
@@ -80,8 +82,9 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-4">
-                                                    <input type="tel" class="form-control rounded-0 {{ $errors->has('phone') ? ' is-invalid' : '' }}"
+                                                    <input id="phone" type="tel" class="form-control rounded-0 {{ $errors->has('phone') ? ' is-invalid' : '' }}"
                                                         placeholder="Mobile Number" name="phone" value="{{ old('phone') }}"
+                                                        autocomplete="tel"
                                                         oninput="this.value=this.value.replace(/[^0-9+]/g,'')" required>
                                                     <label for="phone">Mobile Number <span class="text-danger">*</span></label>
                                                     @if ($errors->has('phone'))
