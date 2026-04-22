@@ -28,7 +28,7 @@
                                                         class="lazyload mx-auto img-fit"
                                                         title="{{ $wishlist->product->getTranslation('name') }}"
                                                         class="img-fluid-product border"
-                                                        alt="">{{ $wishlist->product->getTranslation('name') }}</a>
+                                                        alt="{{ $wishlist->product->getTranslation('name') }}">{{ $wishlist->product->getTranslation('name') }}</a>
                                             </td>
                                             <td>{{ home_discounted_base_price($wishlist->product) }}@if (home_base_price($wishlist->product) != home_discounted_base_price($wishlist->product))
                                                     <del

@@ -3351,7 +3351,7 @@ if (!function_exists('seo_limit_text')) {
 }
 
 if (!function_exists('seo_title')) {
-    function seo_title($rawTitle = null, $keyword = null, $max = 60)
+    function seo_title($rawTitle = null, $keyword = null, $max = 55)
     {
         $baseTitle = $rawTitle ?: (get_setting('meta_title') ?: get_setting('website_name'));
         $finalTitle = trim((string) $baseTitle);
@@ -3365,7 +3365,7 @@ if (!function_exists('seo_title')) {
 }
 
 if (!function_exists('seo_meta_description')) {
-    function seo_meta_description($rawDescription = null, $cta = 'Explore live auctions now.', $max = 160)
+    function seo_meta_description($rawDescription = null, $cta = 'Explore live auctions now.', $max = 150)
     {
         $baseDescription = $rawDescription ?: get_setting('meta_description');
         $finalDescription = trim((string) $baseDescription);

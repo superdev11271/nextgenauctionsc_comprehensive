@@ -12,7 +12,7 @@
                                     <a href="index.html" class="theme-btn-one">Explore Now<i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
-                            <figure class="image-box image-1"><img src="{{ static_asset('xt-assets/images/banner/banner-image-3.png')}}" alt=""></figure>
+                            <figure class="image-box image-1"><img src="{{ static_asset('xt-assets/images/banner/banner-image-3.png')}}" alt="{{ translate('Homepage banner image') }}"></figure>
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                                     <a href="index.html" class="theme-btn-one">Explore Now<i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
-                            <figure class="image-box image-2"><img src="{{ static_asset('xt-assets/images/banner/banner-image-2.png')}}" alt=""></figure>
+                            <figure class="image-box image-2"><img src="{{ static_asset('xt-assets/images/banner/banner-image-2.png')}}" alt="{{ translate('Homepage banner image') }}"></figure>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                                     <a href="index.html" class="theme-btn-one">Explore Now<i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
-                            <figure class="image-box imgae-3"><img src="{{ static_asset('xt-assets/images/banner/banner-image-4.png')}}" alt=""></figure>
+                            <figure class="image-box imgae-3"><img src="{{ static_asset('xt-assets/images/banner/banner-image-4.png')}}" alt="{{ translate('Homepage banner image') }}"></figure>
                         </div>
                     </div>
                 </div>

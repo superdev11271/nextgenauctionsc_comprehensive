@@ -81,7 +81,7 @@
                                 src="{{ uploaded_asset($product->thumbnail_img) }}"
                                 data-src="{{ uploaded_asset($product->thumbnail_img) }}"
                                 onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';"
-                                alt="">
+                                alt="{{ $product->name }}">
                         </a>
                     @endforeach      
                 </div>       

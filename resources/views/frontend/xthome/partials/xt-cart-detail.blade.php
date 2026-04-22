@@ -53,7 +53,7 @@
                                 <div class="side-cart-item-text">
                                     <a href="javascript:void(0)" class="side-cart-item-remove"
                                         onclick="removeFromCart({{ $cartItem['id'] }})">
-                                        <img src="{{ static_asset('assets/img/close.svg') }}" alt="">
+                                        <img src="{{ static_asset('assets/img/close.svg') }}" alt="{{ translate('Remove item') }}">
                                     </a>
                                     {{-- <h6 class="side-cart-item-meta"> {{ $product_name_with_choice }} </h6> --}}
                                     <h4 class="side-cart-item-title">

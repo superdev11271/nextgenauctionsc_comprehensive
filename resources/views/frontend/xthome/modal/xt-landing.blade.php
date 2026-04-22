@@ -17,7 +17,7 @@
                                                 <figure class="logo-box"><a href="{{ route('home') }}"><img
                                                             src="{{ uploaded_asset($header_logo) }}" alt="{{ env('APP_NAME') }}"></a></figure>
                                             @else
-                                            <img src="{{ static_asset('xt-assets/images/nextgenLogo.png') }}" alt="">
+                                            <img src="{{ static_asset('xt-assets/images/nextgenLogo.png') }}" alt="{{ env('APP_NAME') }}">
                                                 <figure class="logo-box"><a href="{{ route('home') }}"><img 
                                                             src="{{ static_asset('assets/img/logo.png') }}" alt="{{ env('APP_NAME') }}"></a>
                                                 </figure>

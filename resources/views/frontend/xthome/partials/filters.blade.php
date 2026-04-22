@@ -16,7 +16,7 @@
                             <ul class="filter-search-currents">
                                 <li>
                                     <p>Gender</p>
-                                    <span class="clear-single" onclick="clearFilter('gender[]')"><img src="images/icons/close.svg" alt=""></span>
+                                    <span class="clear-single" onclick="clearFilter('gender[]')"><img src="images/icons/close.svg" alt="{{ translate('Clear filter') }}"></span>
                                 </li>
                             </ul>
                         </div>
