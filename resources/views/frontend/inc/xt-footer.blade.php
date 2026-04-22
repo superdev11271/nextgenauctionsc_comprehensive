@@ -110,7 +110,7 @@ $get_static_pages =  get_static_pages();
                                     <form method="POST" action="{{ route('subscribers.store') }}" class="newsletter-form mt-3">
                                         @csrf
                                         <div class="input-group mb-3">
-                                            <input type="email" class="form-control" required name="email" placeholder="{{ translate('Your Email Address') }}" />
+                                            <input type="email" class="form-control" required name="email" autocomplete="email" placeholder="{{ translate('Your Email Address') }}" />
                                             <button type="submit" class="input-group-text theme-btn-card" id="basic-addon2">{{ translate('Subscribe') }}</button>
                                         </div>
                                         <!-- <div class="form-group d-flex"><input type="email" required name="email" placeholder="{{ translate('Your Email Address') }}"><button type="submit" class="theme-btn-two px-2 p-0">{{ translate('Subscribe') }}</button></div> -->

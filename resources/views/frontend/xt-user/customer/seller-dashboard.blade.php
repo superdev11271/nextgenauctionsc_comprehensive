@@ -44,10 +44,11 @@
                                 </div>
                                 <div class="col-sm-6 mb-3">
                                     <div class="form-floating"><input type="number" id="seller_profile_phone" class="form-control"
+                                        autocomplete="tel"
                                         placeholder="{{ translate('Your Phone')}}" name="phone" value="{{ Auth::user()->phone }}"><label for="seller_profile_phone">{{ translate('Your Phone')}}</label></div>
                                 </div>
                                 <div class="col-sm-6 mb-3">
-                                    <div class="form-floating"><input type="email" id="seller_profile_email" class="form-control"  placeholder="{{ translate('Your Email')}}" name="email" value="{{ Auth::user()->email }}" required><label for="seller_profile_email">{{ translate('Your Email')}}<span class="text-danger">*</span></label></div>
+                                    <div class="form-floating"><input type="email" id="seller_profile_email" class="form-control"  placeholder="{{ translate('Your Email')}}" name="email" autocomplete="email" value="{{ Auth::user()->email }}" required><label for="seller_profile_email">{{ translate('Your Email')}}<span class="text-danger">*</span></label></div>
                                 </div>
 
                                 {{-- <div class="col-sm-6 mb-3">

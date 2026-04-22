@@ -39,14 +39,14 @@
                 <div class="form-group row">
                     <label class="col-md-2 col-form-label fs-14">{{ translate('Email') }}</label>
                     <div class="col-md-10">
-                        <input type="email" class="form-control rounded-0" placeholder="{{ translate('Email') }}" name="email" value="{{ Auth::user()->email }}">
+                        <input type="email" class="form-control rounded-0" placeholder="{{ translate('Email') }}" name="email" autocomplete="email" value="{{ Auth::user()->email }}">
                     </div>
                 </div>
                 <!-- Phone-->
                 <div class="form-group row">
                     <label class="col-md-2 col-form-label fs-14">{{ translate('Your Phone') }}</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control rounded-0" placeholder="{{ translate('Your Phone')}}" name="phone" value="{{ Auth::user()->phone }}">
+                        <input type="text" class="form-control rounded-0" placeholder="{{ translate('Your Phone')}}" name="phone" autocomplete="tel" value="{{ Auth::user()->phone }}">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -233,7 +233,7 @@
                   </div>
                   <div class="col-md-10">
                       <div class="input-group mb-3">
-                        <input type="email" class="form-control rounded-0" placeholder="{{ translate('Your Email')}}" name="email" value="{{ Auth::user()->email }}" />
+                        <input type="email" class="form-control rounded-0" placeholder="{{ translate('Your Email')}}" name="email" autocomplete="email" value="{{ Auth::user()->email }}" />
                         <div class="input-group-append">
                            <button type="button" class="btn btn-outline-secondary new-email-verification">
                                <span class="d-none loading">

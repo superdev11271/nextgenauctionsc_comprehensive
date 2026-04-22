@@ -65,7 +65,7 @@
                             </div>
                             
                             <div class="mb-30">
-                                <input name="email" type="email" @if(Auth::check())value="{{Auth::user()->email}}" @endif placeholder="Enter your Mail *" class="@error('email') is-invalid @enderror" required/>
+                                <input name="email" type="email" autocomplete="email" @if(Auth::check())value="{{Auth::user()->email}}" @endif placeholder="Enter your Mail *" class="@error('email') is-invalid @enderror" required/>
                                 @error('email')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror

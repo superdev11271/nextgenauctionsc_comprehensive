@@ -122,10 +122,11 @@
                                 </div>
                                 <div class="col-sm-6 mb-3">
                                     <div class="form-floating"><input type="number" id="customer_phone" class="form-control"
+                                        autocomplete="tel"
                                         placeholder="{{ translate('Your Phone')}}" name="phone" value="{{ Auth::user()->phone }}"><label for="customer_phone">{{ translate('Your Phone')}}</label></div>
                                 </div>
                                 <div class="col-sm-6 mb-3">
-                                    <div class="form-floating"><input type="email" id="customer_email" class="form-control"  placeholder="{{ translate('Your Email')}}" name="email" value="{{ Auth::user()->email }}" required><label for="customer_email">{{ translate('Your Email')}}<span class="text-danger">*</span></label></div>
+                                    <div class="form-floating"><input type="email" id="customer_email" class="form-control"  placeholder="{{ translate('Your Email')}}" name="email" autocomplete="email" value="{{ Auth::user()->email }}" required><label for="customer_email">{{ translate('Your Email')}}<span class="text-danger">*</span></label></div>
                                 </div>
 
                                 {{-- <div class="col-sm-6 mb-3">

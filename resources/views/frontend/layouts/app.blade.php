@@ -309,7 +309,7 @@
                                     <form class="" method="POST" action="{{ route('subscribers.store') }}">
                                         @csrf
                                         <div class="form-group mb-0">
-                                            <input type="email" class="form-control" placeholder="{{ translate('Your Email Address') }}" name="email" required>
+                                            <input type="email" class="form-control" placeholder="{{ translate('Your Email Address') }}" name="email" autocomplete="email" required>
                                         </div>
                                         <button type="submit" class="btn btn-block mt-3 rounded-0 text-{{ $dynamic_popup->btn_text_color }}" style="background: {{ $dynamic_popup->btn_background_color }};">
                                             {{ $dynamic_popup->btn_text }}
