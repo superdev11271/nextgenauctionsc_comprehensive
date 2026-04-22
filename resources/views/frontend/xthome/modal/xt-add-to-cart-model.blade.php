@@ -6,7 +6,7 @@
                 <i class="las la-spinner la-spin la-3x"></i>
             </div>
             <div class="d-flex flex-row-reverse">
-                <button type="button" class="btn-close" class="btn-close" aria-label="Close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
             </div>
             
             <div id="addToCart-modal-body">

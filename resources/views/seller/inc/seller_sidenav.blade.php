@@ -3,10 +3,10 @@
         <div class="aiz-side-nav-logo-wrap">
             <div class="d-block text-center my-3">
                 @if (optional(Auth::user()->shop)->logo != null)
-                    <img class="mw-100 mb-3" src="{{ uploaded_asset(optional(Auth::user()->shop)->logo) }}"
-                        class="brand-icon" alt="{{ get_setting('site_name') }}">
+                    <img class="mw-100 mb-3 brand-icon" src="{{ uploaded_asset(optional(Auth::user()->shop)->logo) }}"
+                        alt="{{ get_setting('site_name') }}">
                 @else
-                    <img class="mw-100 mb-3" src="{{ uploaded_asset(get_setting('system_logo_black')) }}" class="brand-icon"
+                    <img class="mw-100 mb-3 brand-icon" src="{{ uploaded_asset(get_setting('system_logo_black')) }}"
                         alt="{{ get_setting('site_name') }}ghgfhhh">
                 @endif
                 <h3 class="fs-16  m-0 text-primary">{{ optional(Auth::user()->shop)->name }}</h3>

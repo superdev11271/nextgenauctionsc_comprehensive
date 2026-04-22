@@ -27,7 +27,7 @@
                         <i class="fas fa-star"></i>
                     </label>
                     <label>
-                        <input type="radio" class="d-none" class="d-none" name="rating" value="3">
+                        <input type="radio" class="d-none" name="rating" value="3">
                         <i class="fas fa-star"></i>
                     </label>
                     <label>

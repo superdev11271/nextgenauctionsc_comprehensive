@@ -308,7 +308,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="mb-0 h6" class="dropdown-toggle" data-toggle="collapse"
+                            <h5 class="mb-0 h6 dropdown-toggle" data-toggle="collapse"
                                 data-target="#collapse_2">
                                 {{ translate('Shipping Configuration') }}
                             </h5>
