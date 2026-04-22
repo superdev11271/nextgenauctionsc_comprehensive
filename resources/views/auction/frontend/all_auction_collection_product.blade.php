@@ -77,35 +77,54 @@
 
 
         <script>
-            function updateTimer(endDateTime) {
-            const now = moment().tz("{{env('APP_TIMEZONE')}}");;
-            const distance = endDateTime - now;
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            updateDisplay(days, 'date');
-            updateDisplay(hours, 'hour');
-            updateDisplay(minutes, 'minute');
-            updateDisplay(seconds, 'second');
-        }
-        function updateDisplay(value, unitId) {
-            const unitElement = document.getElementById(unitId);
-            const digits = unitElement.querySelectorAll('.number');
-            const formattedValue = formatUnit(value);
-            for (let i = 0; i < digits.length; i++) {
-                digits[i].textContent = formattedValue.charAt(i);
-            }
-        }
+            function updateTimer(endDateTimeMs) {
+                const nowMs = Date.now();
+                const distance = endDateTimeMs - nowMs;
+                if (distance <= 0) {
+                    updateDisplay(0, 'date');
+                    updateDisplay(0, 'hour');
+                    updateDisplay(0, 'minute');
+                    updateDisplay(0, 'second');
+                    return false;
+                }
 
-        function formatUnit(unit) {
-            return String(unit).padStart(2, '0');
-        }
-        const endDateTime = moment.unix('{{$products->first()?->auction_end_date}}').tz("{{env('APP_TIMEZONE')}}");
-        updateTimer(endDateTime);
-        const intervalId = setInterval(() => {
-            updateTimer(endDateTime);
-        }, 1000);
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                updateDisplay(days, 'date');
+                updateDisplay(hours, 'hour');
+                updateDisplay(minutes, 'minute');
+                updateDisplay(seconds, 'second');
+                return true;
+            }
+
+            function updateDisplay(value, unitId) {
+                const unitElement = document.getElementById(unitId);
+                if (!unitElement) {
+                    return;
+                }
+                const digits = unitElement.querySelectorAll('.number');
+                const formattedValue = formatUnit(value);
+                for (let i = 0; i < digits.length; i++) {
+                    digits[i].textContent = formattedValue.charAt(i) || '0';
+                }
+            }
+
+            function formatUnit(unit) {
+                return String(unit).padStart(2, '0');
+            }
+
+            const endDateTimeMs = Number('{{ $products->first()?->auction_end_date }}') * 1000;
+            if (endDateTimeMs > 0) {
+                updateTimer(endDateTimeMs);
+                const intervalId = setInterval(() => {
+                    const running = updateTimer(endDateTimeMs);
+                    if (!running) {
+                        clearInterval(intervalId);
+                    }
+                }, 1000);
+            }
         </script>
         <script>
             @include("auction.frontend.xthome.filterOffCanvas.filter_offcanvas_script")
