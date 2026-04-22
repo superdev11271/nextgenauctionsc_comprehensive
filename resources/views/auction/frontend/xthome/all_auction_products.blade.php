@@ -40,7 +40,7 @@
     <section class="shop-section items-container  clearfix aos-init aos-animate" data-aos="fade-up">
         <div class="auto-container wow fadeInUp animated animated animated">
             <div class="sec-title">
-                <h2>{{ translate('All Auctions') }}</h2>
+                <h1>{{ translate('All Auctions') }}</h1>
                 <span class="separator"
                     style="background-image: url('{{ static_asset('xt-assets/images/icons/separator-1.png') }}');"></span>
             </div>

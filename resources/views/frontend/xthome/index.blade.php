@@ -1,6 +1,7 @@
 @extends('frontend.layouts.xt-app')
 
 @section('content')
+    <h1 class="visually-hidden">{{ translate('Next Gen Auctions Home') }}</h1>
     @include('frontend.xthome.partials.xt-home-banner')
     @include('frontend.xthome.partials.xt-top-category')
     @include('frontend.xthome.partials.xt-auctions')

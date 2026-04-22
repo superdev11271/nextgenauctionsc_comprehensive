@@ -25,7 +25,7 @@
                                
                                 <div class="w-100">
                                     <p class="fw-bold text-center text-danger"></p>
-                                    <h3 class="mb-4">{{ translate('Register as a Seller')}}</h3>
+                                    <h1 class="mb-4">{{ translate('Register as a Seller')}}</h1>
                                 </div>
                             </div>
                             <div class="signin-form">

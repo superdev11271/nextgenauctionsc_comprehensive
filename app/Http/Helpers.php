@@ -2789,7 +2789,7 @@ if (!function_exists('timezones')) {
 }
 
 if (!function_exists('search')) {
-    function search($request, $searchForAuction = true, $view, $collected = false,$auctiontype="")
+    function search($request, $searchForAuction = true, $view = "", $collected = false,$auctiontype="")
     {
 
         $conditions = ['published' => 1];

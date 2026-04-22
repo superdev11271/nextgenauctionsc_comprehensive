@@ -45,6 +45,7 @@
 @section('content')
 
 <!-- account details -->
+<h1 class="visually-hidden">{{ translate('Become a Seller') }}</h1>
 
 <section class="shop-section account-details pt-5">
     <div class="auto-container">
