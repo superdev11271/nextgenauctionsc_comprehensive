@@ -24,10 +24,18 @@ class ViewShareVariablesMiddleware
         return $next($request);
     }
 
-    public function getCachedNotificationCount() {
-        // return Cache::remember("notificationCount",5, function(){
+    public function getCachedNotificationCount()
+    {
+        $userId = auth()->id();
+        if (!$userId) {
+            return 0;
+        }
+
+        // Cache for a short interval to avoid repeating expensive whereHas counts
+        // on every single request while keeping the count fresh enough for UI use.
+        return Cache::remember("notificationCount.{$userId}", now()->addSeconds(30), function () {
             return $this->_getNotificationCount();
-        // });
+        });
     }
 
     public function _getNotificationCount() {
