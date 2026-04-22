@@ -92,7 +92,11 @@
 
 @section('script')
         <script type="text/javascript">
-    $(document).ready(function () { 
+    $(document).ready(function () {
+        if (!(window.jQuery && $.validator && $.fn && $.fn.validate)) {
+            return;
+        }
+
         $.validator.addMethod('customWhitespaceValidation', function (value, element) {
         return this.optional(element) || /\S/.test(value);
         }, 'Whitespaces are not allowed.');

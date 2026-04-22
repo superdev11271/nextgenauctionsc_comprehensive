@@ -1,16 +1,38 @@
-<script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
 <script>
-    // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
+    (function () {
+        // Load realtime client only on pages that actually render auction bid/timer UI.
+        const hasAuctionRealtimeUi = !!(
+            document.querySelector('[class*="auction-timer-"]') ||
+            document.querySelector('[id^="currentBidAmount"]') ||
+            document.querySelector('[id^="amountInput"]') ||
+            document.querySelector('#bid_for_product')
+        );
 
-    var pusher = new Pusher("{{ env('PUSHER_APP_KEY') }}", {
-        cluster: '{{ env('PUSHER_APP_CLUSTER') }}'
-    });
+        if (!hasAuctionRealtimeUi) {
+            return;
+        }
 
-    var channel = pusher.subscribe('nexgen');
-    channel.bind('bid_update', function(data) {
-        updateElement(data)
-    });
+        const pusherScript = document.createElement('script');
+        pusherScript.src = 'https://js.pusher.com/8.2.0/pusher.min.js';
+        pusherScript.async = true;
+        pusherScript.onload = function () {
+            if (typeof Pusher === 'undefined') {
+                return;
+            }
+
+            Pusher.logToConsole = false;
+
+            var pusher = new Pusher("{{ env('PUSHER_APP_KEY') }}", {
+                cluster: '{{ env('PUSHER_APP_CLUSTER') }}'
+            });
+
+            var channel = pusher.subscribe('nexgen');
+            channel.bind('bid_update', function(data) {
+                updateElement(data);
+            });
+        };
+        document.head.appendChild(pusherScript);
+    })();
 
     function updateElement(data) {
         let product_id = data.product_id
@@ -47,11 +69,25 @@
 
             if (typeof intervalId !== 'undefined') {
                 clearInterval(intervalId)
-                let newEndtime = moment.unix(end_time_unixtime).tz("{{ env('APP_TIMEZONE') }}")
-                updateTimer(0, newEndtime);
-                intervalId = setInterval(() => {
+
+                // Keep realtime updates safe even when moment/moment-timezone
+                // are unavailable on the current page.
+                let newEndtime;
+                if (typeof moment !== 'undefined' && moment.unix) {
+                    const m = moment.unix(end_time_unixtime);
+                    newEndtime = (m && typeof m.tz === 'function')
+                        ? m.tz("{{ env('APP_TIMEZONE') }}")
+                        : m;
+                } else {
+                    newEndtime = new Date(end_time_unixtime * 1000);
+                }
+
+                if (typeof updateTimer === 'function') {
                     updateTimer(0, newEndtime);
-                }, 1000);
+                    intervalId = setInterval(() => {
+                        updateTimer(0, newEndtime);
+                    }, 1000);
+                }
             }
 
         } else {
