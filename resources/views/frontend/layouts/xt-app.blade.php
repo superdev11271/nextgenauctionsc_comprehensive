@@ -19,15 +19,6 @@
         $seoDescription = seo_meta_description($pageDescription);
         $canonicalUrl = trim($__env->yieldContent('canonical_url', seo_canonical_url()));
     @endphp
-     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YX662DWFL6"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-YX662DWFL6');
-    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -35,6 +26,9 @@
     <meta name="app-url" content="{{ getBaseURL() }}">
     <meta name="file-base-url" content="{{ getFileBaseURL() }}">
     <title>{{ $seoTitle }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
@@ -95,7 +89,6 @@
    <link href="{{ static_asset('xt-assets/css/model.css') }}{{ $assets_version }}" rel="stylesheet">
 
    <link href="{{ static_asset('xt-assets/libs/slider/css/slick.css') }}{{ $assets_version }}" rel="stylesheet">
-   <link href="{{ static_asset('xt-assets/libs/slider/css/jquery.fancybox.min.css') }}{{ $assets_version }}" rel="stylesheet">
    @stack('css')
    @yield('css')
    <!-------language script--------->
@@ -284,9 +277,22 @@
         @endforeach
 
 
-        setTimeout(() => {
-            document.querySelector('.loader').classList.add('d-none')
-        }, 2000);
+        // Remove fixed 2s blocking delay so first render can appear immediately.
+        (function() {
+            const hideLoader = function () {
+                const loader = document.querySelector('.loader');
+                if (loader) {
+                    loader.classList.add('d-none');
+                }
+            };
+
+            if (document.readyState === 'complete') {
+                hideLoader();
+            } else {
+                window.addEventListener('load', hideLoader, { once: true });
+                setTimeout(hideLoader, 500);
+            }
+        })();
 
         $(document).ready(function() {
             if ($('#lang-change').length > 0) {

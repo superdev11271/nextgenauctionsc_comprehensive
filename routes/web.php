@@ -152,9 +152,7 @@ Route::middleware(['web'])->controller(HomeController::class)->group(function ()
     Route::post('/import-data', 'import_data');
 
     //Home Page
-    Route::get('/', function(){
-        return redirect('auction-products/collection');
-    });
+    Route::get('/', [AuctionProductController::class, 'auctionCollection']);
     Route::get('/home', 'index')->name('home');
 
     Route::post('/home/section/featured', 'load_featured_section')->name('home.section.featured');
